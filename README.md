@@ -1,4 +1,4 @@
-# Data Collection Project
+# CSV save file run scripts py, pandas and postgresql
 
 Этот проект предназначен для автоматического сбора данных из базы данных PostgreSQL, 
 их сохранения в CSV файл и ежедневного выполнения задачи с использованием cron.
