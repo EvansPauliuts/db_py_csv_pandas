@@ -1,0 +1,6 @@
+pandas
+python-dotenv
+black
+pytest
+sqlalchemy
+psycopg2-binary
