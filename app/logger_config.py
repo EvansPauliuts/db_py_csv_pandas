@@ -8,10 +8,10 @@ class LoggerFormatter(logging.Formatter):
         tz = ZoneInfo('Europe/Minsk')
         record.asctime = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
 
-        if record.levelname == 'INFO' and record.message == 'START_LOGGER':
+        if record.levelname == 'INFO' and record.msg == 'START_LOGGER':
             return f'------------- {record.asctime} -------------'
 
-        log_message = f'{record.asctime} - {record.levelname} - {record.message}'
+        log_message = f'{record.asctime} - {record.levelname} - {record.msg}'
         return log_message
 
 
