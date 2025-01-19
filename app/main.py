@@ -17,6 +17,8 @@ def query_and_save_to_csv():
 
         connection = get_db_connection()
 
+        logger.info('START_LOGGER')
+
         for query_info in queries:
             query = query_info.get('query', None)
             file_name = query_info.get('name', 'unknown_query')
