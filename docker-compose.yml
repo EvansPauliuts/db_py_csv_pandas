@@ -1,28 +1,30 @@
 services:
-  postgres:
-    image: postgres:15-alpine
+  mariadb:
+    image: mariadb:latest
     environment:
-      POSTGRES_DB: ${DB_DATABASE}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_DATABASE}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      TZ: Europe/Minsk
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mariadb_data:/var/lib/mysql/data
     ports:
-      - "5432:5432"
+      - "3306:3306"
 
   app:
     build: .
     environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
+      - DB_HOST=mariadb
+      - DB_PORT=3306
       - DB_DATABASE=${DB_DATABASE}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
-      - postgres
+      - mariadb
     volumes:
       - ./data:/app/data
     restart: always
 
 volumes:
-  postgres_data:
+  mariadb_data:
