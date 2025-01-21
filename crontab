@@ -1,1 +1,1 @@
-*/1 * * * * root /app/run_task.sh
+*/1 * * * * root /app/app/run_task.sh
