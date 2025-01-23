@@ -36,15 +36,12 @@ def query_and_save_to_csv():
                 df = pd.read_sql(query, connection)
                 logger.info(f'Получено данных: {len(df)} строк')
 
-                current_date = datetime.now(tz=ZoneInfo('Europe/Minsk')).strftime(
-                    '%Y-%m-%d_%H-%M-%S'
-                )
-                filename = f'data/{file_name}_{current_date}.csv'
-
-                logger.info(f'Сохраняем в файл: {filename}')
-                df.to_csv(filename, index=False)
-
                 if not df.empty:
+                    current_date = datetime.now(tz=ZoneInfo('Europe/Minsk')).strftime(
+                        '%Y-%m-%d_%H-%M-%S'
+                    )
+                    filename = f'data/{file_name}_{current_date}.csv'
+                    df.to_csv(filename, index=False)
                     logger.info(f'Файл {filename} успешно сохранен.')
                 else:
                     logger.warning(
