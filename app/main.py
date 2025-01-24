@@ -40,9 +40,9 @@ def query_and_save_to_csv():
                     current_date = datetime.now(tz=ZoneInfo('Europe/Minsk')).strftime(
                         '%Y-%m-%d_%H-%M-%S'
                     )
-                    filename = f'data/{file_name}_{current_date}.csv'
-                    df.to_csv(filename, index=False)
-                    logger.info(f'Файл {filename} успешно сохранен.')
+                    file_csv = f'data/{file_name}_{current_date}.csv'
+                    df.to_csv(file_csv, index=False)
+                    logger.info(f'Файл {file_csv} успешно сохранен.')
                 else:
                     logger.warning(
                         f'Запрос {file_name} не вернул данных, файл не сохранен.'
