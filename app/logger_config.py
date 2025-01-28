@@ -11,8 +11,7 @@ class LoggerFormatter(logging.Formatter):
         if record.levelname == 'INFO' and record.msg == 'START_LOGGER':
             return f'------------- {record.asctime} -------------'
 
-        log_message = f'{record.asctime} - {record.levelname} - {record.msg}'
-        return log_message
+        return f'{record.asctime} - {record.levelname} - {record.msg}'
 
 
 def setup_logger():
